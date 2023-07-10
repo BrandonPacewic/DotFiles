@@ -1,6 +1,6 @@
 # Dot Files
 
-Here are all of my config files for my dev environment. Currently using Windows 11.
+Here are all of my config files for my dev environment.
 
 ## License
 
