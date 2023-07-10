@@ -2,8 +2,6 @@
 " SPDX-License-Identifier: MIT
 
 call plug#begin('C:/Users/pacew/AppData/Local/nvim/plugged')
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'wfxr/minimap.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
@@ -35,21 +33,12 @@ set tabstop=4 shiftwidth=4 expandtab
 " update
 set signcolumn=yes
 
-" Accept intellisense with tab
-inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
-inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
-
-" Minimap config
-let g:minimap_width=10
-let g:minimap_auto_start=1
-let g:minimap_auto_start_win_enter=1
-
 " Latex config 
 let g:tex_flavor='latex'
 let g:vimtex_view_general_viewer='SumatraPDF'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal = 'abdmg'
+set conceallevel=0
+let g:tex_conceal='abdmg'
 
 " Spell check
 " Use Ctrl + l to correct the previous spelling mistake
@@ -62,3 +51,8 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
+" Auto save
+augroup autosave
+    autocmd!
+    autocmd TextChanged,TextChangedI <buffer> silent! write
+augroup END
